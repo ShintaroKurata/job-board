@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Brand>
  */
@@ -16,14 +16,17 @@ class BrandFactory extends Factory
      */
     public function definition()
     {
-        return [
+        $brand_name = $this->faker->company;
+        $slug= str_slug($brand_name);
+        return[
             'user_id' =>\App\Models\User::all()->random()->id,
-            'brand_name'=>$this->faker->company,
+            'brand_name'=>$brand_name,
+            'slug'=>$slug,
             'address'=>$this->faker->address,
             'phone'=>$this->faker->phoneNumber,
             'website'=>$this->faker->domainName,
-            'logo'=>'avatar/man.jpg',
-            'cover_photo'=>'cover/tunblr-image.jpg',
+            'logo'=>'t-shirt.png',
+            'cover_photo'=>'cover-image.jpg',
             'slogan'=>'learn-earn and grow',
             'description'=>$this->faker->realText
         ];

@@ -4,17 +4,15 @@
 <div class="container">
 <div class="col-md-12">
         <div class="brand-profile">
-            @if(empty(Auth::user()->brand->cover_photo))
-            <img src={{asset('cover/400-200.png')}} style="width:100%">
-            @else
-            <img src="{{asset('uploads/coverphoto')}}/{{Auth::user()->brand->cover_photo}}" style="width: 100%; height:200px; object-fit: cover;">
+            @if(empty($brand->cover_photo))
+            <img src="{{asset('uploads/coverphoto')}}/{{$brand->cover_photo}}" style="width: 100%; height:200px; object-fit: cover;">
             @endif
 
             <div class="brand-desc">
-            @if(empty(Auth::user()->brand->logo))
+            @if(empty($brand->logo))
                 <img src={{asset('avatar/t-shirt.png')}} width="100">
             @else
-                <img src="{{asset('uploads/logo')}}/{{Auth::user()->brand->logo}}" style="width: 160px; height: 240px; object-fit: cover;">
+                <img src="{{asset('uploads/logo')}}/{{$brand->logo}}" style="width: 160px; height: 240px; object-fit: cover;">
             @endif
                 <p>{{$brand->description}}</p>
                 <h1>{{$brand->brand_name}}</h1>

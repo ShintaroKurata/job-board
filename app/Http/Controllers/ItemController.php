@@ -19,8 +19,10 @@ class ItemController extends Controller
     }
 
    public function index(){
-        $items=Item::all()->take(10);
-        return view('welcome',compact('items'));
+        $items=Item::latest()->limit(10)->where('status',1)->get();
+        $brands = Brand::limit(10)->get();
+
+        return view('welcome',compact('items','brands'));
     }
 
     public function show($id,Item $item){

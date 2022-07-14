@@ -1,34 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- <div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          ...
+        </div>
+        <!-- スライドさせる画像の設定 -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="..." alt="第1スライド" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>第1スライド ラベル</h5>
+              <p>1番目のスライドの代表的なプレースホルダコンテンツ。</p>
+            </div><!-- /.carousel-caption -->
+          </div><!-- /.carousel-item -->
+          ...
+        </div><!-- /.carousel-inner -->
+        ...
+      </div>
+</div> --}}
 <div class="container">
     <div class="row">
         <h1>最新商品一覧</h1>
-        <table class="table">
-            <thead>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </thead>
-            <tbody>
                 @foreach($items as $item)
-                <tr>
-                    <td><img src="{{asset('avatar/t-shirt.png')}}" width="80"></td>
-                    <td>position:{{$item->position}}
-                        <br>
-                        <i class="fa-solid fa-clock" aria-hidden="true"></i>&nbsp;{{$item->type}}
-                    </td>
-                    <td><i class="fa-solid fa-location-dot" aria-hidden="true"></i>&nbsp;Address:{{$item->address}}</td>
-                    <td><i class="fa-solid fa-calendar" aria-hidden="true"></i>&nbsp;Date:{{$item->created_at->diffForHumans()}}</td>
-                    <td><a href="{{route('items.show',[$item->id,$item->slug])}}"><button class="btn btn-success btn-ssm">申し込む</button></td>
-                </tr>
+                        <div class="col-md-3">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="{{asset('uploads/logo')}}/{{$item->brand->logo}}" width="80">
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{str_limit($item->title,25)}}</h5>
+                                        <p class="card-text">{{str_limit($item->description,20)}}</p>
+                                        <a href="{{route('items.show',[$item->id,$item->slug])}}" class="btn btn-primary">商品詳細を見る</a>
+                                        </div>
+                                    </div>
+                        </div>
                 @endforeach
-            </tbody>
-        </table>
-
     </div>
+
+    <div>
+        <button class="btn btn-success btn-lg" style="width: 100%;">
+            全ての商品を見る
+        </button>
+    </div>
+        <br><br>
+      <div>
+        <h1>注目のブランド</h1>
+        <div class="container">
+            <div class="row">
+                 @foreach($brands as $brand)
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{asset('uploads/logo')}}/{{$brand->logo}}" width="80">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$brand->brand_name}}</h5>
+                          <p class="card-text">{{str_limit($brand->description,20)}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">An item</li>
+                          <li class="list-group-item">A second item</li>
+                          <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                          <a href="{{route('brand.index',[$brand->id,$brand->slug])}}" class="card-link">ブランドプロフィールを見る</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                      </div>
+                </div>
+                 @endforeach
+            </div>
+        </div>
+     </div>
 </div>
 @endsection
 <style>
