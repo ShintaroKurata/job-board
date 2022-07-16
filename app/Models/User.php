@@ -12,7 +12,7 @@ use App\Models\Brand;
 use App\Models\Item;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 

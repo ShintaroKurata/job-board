@@ -10,7 +10,13 @@ use Hash;
 
 class BrandOwnerRegisterController extends Controller
 {
-    public function brandownerRegister(){
+    public function brandownerRegister(Request $request){
+        $this->validate($request,[
+            'brand_name' =>'required|string|max:255',
+            'email' =>'required|string|email|max:255|unique:users',
+            'password' =>'required|string|min:8|confirmed'
+        ]);
+
         $user = User::create([
             'email' => request('email'),
             'password' => Hash::make(request('password')),
@@ -22,6 +28,6 @@ class BrandOwnerRegisterController extends Controller
             'brand_name'=>request('brand_name'),
             'slug'=>Str::slug(request('brand_name'))
         ]);
-        return redirect()->to('login');
+        return redirect()->to('login')->with('message','ご登録ありがとうございます。あなたのメールアドレスにリンクをお送り致しました。メールアドレスの認証をお願いいたします！');
     }
 }

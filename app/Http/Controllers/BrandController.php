@@ -10,7 +10,7 @@ class BrandController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('brand_owner',['except'=>array('index')]);
+        $this->middleware(['brand_owner','verified'],['except'=>array('index')]);
 
     }
 

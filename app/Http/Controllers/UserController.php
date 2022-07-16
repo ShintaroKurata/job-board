@@ -9,7 +9,7 @@ class UserController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('buyer');
+        $this->middleware(['buyer','verified']);
 
     }
 

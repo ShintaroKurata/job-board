@@ -22,7 +22,7 @@
 </div> --}}
 <div class="container">
     <div class="row">
-        <h1>最新商品一覧</h1>
+        <h1>Latest Items</h1>
                 @foreach($items as $item)
                         <div class="col-md-3">
                                     <div class="card" style="width: 18rem;">
@@ -38,13 +38,13 @@
     </div>
 
     <div>
-        <button class="btn btn-success btn-lg" style="width: 100%;">
-            全ての商品を見る
-        </button>
+        <a href="{{route('items.allitems')}}"><button class="btn btn-success btn-lg" style="width: 100%;">
+            View all items
+        </button></a>
     </div>
         <br><br>
       <div>
-        <h1>注目のブランド</h1>
+        <h1>Featured Brands</h1>
         <div class="container">
             <div class="row">
                  @foreach($brands as $brand)

@@ -14,13 +14,13 @@ class ItemController extends Controller
 {
 
    public function __construct(){
-        $this->middleware('brand_owner',['except'=>array('index','show','apply')]);
+        $this->middleware(['brand_owner','verified'],['except'=>array('index','show','apply','allitems')]);
 
     }
 
    public function index(){
-        $items=Item::latest()->limit(10)->where('status',1)->get();
-        $brands = Brand::limit(10)->get();
+        $items=Item::latest()->limit(12)->where('status',1)->get();
+        $brands = Brand::limit(12)->get();
 
         return view('welcome',compact('items','brands'));
     }
@@ -38,6 +38,7 @@ class ItemController extends Controller
         $items = Item::where('user_id',auth()->user()->id)->get();
         return view('items.myitems',compact('items'));
     }
+
 
     public function create(){
         return view('items.create');
@@ -96,5 +97,24 @@ class ItemController extends Controller
         $ItemId->users()->attach(Auth::user()->id);
         return redirect()->back()->with('message','申請は送られました！');
     }
+    public function allitems(Request $request){
+        $keyword = $request->get('title');
+        $category = $request->get('category_id');
+        $address = $request->get('address');
+        $price = $request->get('price');
+
+        if($keyword||$category||$address||$price){
+            $items = Item::where('title','LIKE','%{$keyword}%')
+            ->orwhere('category_id','=',$category)
+            ->orwhere('address','LIKE','%{$address}%')
+            ->orwhere('price','LIKE','%'.$price.'%')
+            ->paginate(10);
+            return view('items.allitems',compact('items'));
+        }else{
+        $items=Item::latest()->paginate(10);
+        return view('items.allitems',compact('items'));
+        }
+    }
+
 
 }

@@ -8,11 +8,13 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    {{-- <p>{{Auth::user()->name}}</p>
-                    <p>{{Auth::user()->profile->address}}</p> --}}
-                    @foreach ($users as $user)
-                        <p>{{$user->name}}</p>
-                    @endforeach
+                    @if(Auth::user()->user_type == 'buyer')
+                    <p>ようこそ、{{Auth::user()->name}}さん。ご登録ありがとうございます。</p>
+                    <p>{{Auth::user()->profile->address}}</p>
+                    @else
+                    <p>ようこそ。あなたは、『{{Auth::user()->brand->brand_name}}』のオーナーさんですね。</p><br>
+                    <p>詳しいブランドプロフィールは、こちらから編集してください。</p>
+                    @endif
                 </div>
             </div>
         </div>
