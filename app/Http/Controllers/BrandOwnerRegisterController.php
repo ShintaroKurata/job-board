@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\User;
@@ -10,6 +11,7 @@ use Hash;
 
 class BrandOwnerRegisterController extends Controller
 {
+
     public function brandownerRegister(Request $request){
         $this->validate($request,[
             'brand_name' =>'required|string|max:255',
@@ -28,6 +30,8 @@ class BrandOwnerRegisterController extends Controller
             'brand_name'=>request('brand_name'),
             'slug'=>Str::slug(request('brand_name'))
         ]);
+
+        $user->sendEmailVerificationNotification();
         return redirect()->to('login')->with('message','ご登録ありがとうございます。あなたのメールアドレスにリンクをお送り致しました。メールアドレスの認証をお願いいたします！');
     }
 }

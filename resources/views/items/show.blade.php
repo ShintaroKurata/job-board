@@ -33,11 +33,13 @@
                 </div>
             </div>
             @if(Auth::check()&&Auth::user()->user_type=='buyer')
+
             @if(!$item->checkApplication())
-            <form action="{{route('apply',[$item->id])}}" method="POST">@csrf
-            <button type="submit" class="btn btn-success" style="width:100%">申し込む</button>
-            </form>
+            <apply-component itemid={{$item->id}}></apply-component>
             @endif
+            <br>
+            <favourite-component></favourite-component>
+
             @endif
         </div>
     </div>

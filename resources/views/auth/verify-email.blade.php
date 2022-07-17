@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('メールアドレスを認証してください。') }}</div>
 
                 <div class="card-body">
-                    @if (session::has('message'))
+                    @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{Session::get('message')}}<br>
                         </div>

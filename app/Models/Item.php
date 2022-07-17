@@ -30,4 +30,12 @@ class Item extends Model
     public function checkApplication(){
         return \DB::table('item_user')->where('user_id',auth()->user()->id)->where('item_id',$this->id)->exists();
     }
+
+    public function favourites(){
+        return $this->belongsToMany(User::class)->withTimeStamps();
+    }
+
+    public function checkSaved(){
+        return \DB::table('favourites')->where('user_id',auth()->user()->id)->where('item_id',$this->id)->exists();
+    }
 }
