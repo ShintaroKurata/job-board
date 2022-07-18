@@ -32,7 +32,7 @@ class Item extends Model
     }
 
     public function favourites(){
-        return $this->belongsToMany(User::class)->withTimeStamps();
+        return $this->belongsToMany(Item::class,'favourites','item_id','user_id')->withTimeStamps();
     }
 
     public function checkSaved(){

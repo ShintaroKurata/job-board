@@ -5457,13 +5457,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
+  props: ['itemid', 'favourited'],
   data: function data() {
     return {
-      'show': true
+      show: true
     };
+  },
+  mounted: function mounted() {
+    this.show = this.itemFavourited ? true : false;
+  },
+  computed: {
+    itemFavourited: function itemFavourited() {
+      return this.favourited;
+    }
+  },
+  methods: {
+    save: function save() {
+      var _this = this;
+
+      axios.post('/save/' + this.itemid).then(function (response) {
+        return _this.show = true;
+      })["catch"](function (error) {
+        return alert('エラー');
+      });
+    },
+    unsave: function unsave() {
+      var _this2 = this;
+
+      axios.post('/unsave/' + this.itemid).then(function (response) {
+        return _this2.show = false;
+      })["catch"](function (error) {
+        return alert('エラー');
+      });
+    }
   }
 });
 
@@ -28315,13 +28341,31 @@ var render = function () {
     _vm.show
       ? _c(
           "button",
-          { staticClass: "btn btn-primary", staticStyle: { width: "100%" } },
-          [_vm._v("保存する")]
+          {
+            staticClass: "btn btn-dark",
+            staticStyle: { width: "100%" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.unsave()
+              },
+            },
+          },
+          [_vm._v("お気に入りから削除")]
         )
       : _c(
           "button",
-          { staticClass: "btn btn-dark", staticStyle: { width: "100%" } },
-          [_vm._v("保存を取り消す")]
+          {
+            staticClass: "btn btn-primary",
+            staticStyle: { width: "100%" },
+            on: {
+              click: function ($event) {
+                $event.preventDefault()
+                return _vm.save()
+              },
+            },
+          },
+          [_vm._v("お気に入りに追加")]
         ),
   ])
 }

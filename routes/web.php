@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\BrandOwnerRegisterController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -21,6 +22,9 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Auth::routes(['verify' => true]);
 
 //ルート
@@ -71,12 +75,14 @@ Route::view('brand-owner/register','auth.brand-owner-register')->name('brand_own
 Route::post('brand-owner/register',[BrandOwnerRegisterController::class,'brandownerRegister'])->name('brd.register');
 Route::post('/applications/{id}',[ItemController::class,'apply'])->name('apply');
 
+
 //save and unsave item
 Route::post('/save/{id}',[FavouriteController::class,'saveItem']);
 Route::post('/unsave/{id}',[FavouriteController::class,'unSaveItem']);
 
 
 //home
-Route::get('/home',[HomeController::class,'index']);
+Route::get('/home',[HomeController::class,'index'])->name('home');
+
 
 

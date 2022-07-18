@@ -35,10 +35,10 @@
             @if(Auth::check()&&Auth::user()->user_type=='buyer')
 
             @if(!$item->checkApplication())
-            <apply-component itemid={{$item->id}}></apply-component>
+            <apply-component :itemid={{$item->id}}></apply-component>
             @endif
             <br>
-            <favourite-component></favourite-component>
+            <favourite-component :itemid={{$item->id}} :favourited={{$item->checkSaved()?'true':'false'}}></favourite-component>
 
             @endif
         </div>

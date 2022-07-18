@@ -82,14 +82,17 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->user_type =='brand_owner')
                                         <a class="dropdown-item" href="{{ route('brand.view') }}">
-                                            {{ __('Brand Profile') }}
+                                            {{ __('ブランドプロフィール') }}
                                         </a>
                                         <a class="dropdown-item" href="{{route('items.myitems')}}">
-                                            My Items
+                                            {{__('投稿した商品')}}
                                         </a>
                                     @else
                                         <a class="dropdown-item" href="{{route('user.profile')}}">
-                                            {{ __('Profile') }}
+                                            {{ __('プロフィール') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{route('home')}}">
+                                            {{ __('お気に入りの商品') }}
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
