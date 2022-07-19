@@ -1,0 +1,179 @@
+/*----------------------------------------*/
+/*  15. Fun Fact CSS
+/*----------------------------------------*/
+
+.mt--60{
+    margin-top: -60px;
+    // Responsive
+    @media #{$tablet-device}{
+        margin-top: 0px;
+        padding-top: 60px;
+    }
+    @media #{$large-mobile}{
+        margin-top: 0px;
+        padding-top: 50px;
+    }
+}
+.mt--270{
+    margin-top: -270px;
+    // Responsive
+    @media #{$desktop-device}{
+        margin-top: 0px;
+        padding-bottom: 80px;
+
+    }
+    @media #{$tablet-device}{
+        margin-top: 0px;
+        padding-bottom: 55px;
+
+    }
+    @media #{$large-mobile}{
+        margin-top: 0px;
+        padding-bottom: 20px;
+    }
+}
+
+.funfact-wrap{
+    width: 100%;
+    &.d-flex{
+        // Responsive
+        @media #{$large-mobile}{
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.single-funfact{
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    .icon-img{
+        margin-right: 20px;
+    }
+    .funfact-content{
+        .counter{
+            font-size: 30px;
+            font-weight: 700;
+            color: #333;
+            line-height: 36px;
+            display: block;
+            // Responsive
+            @media #{$desktop-device}{
+                font-size: 28px;
+            }
+        }
+        .text{
+            font-size: 15px;
+            line-height: 26px;
+            text-transform: uppercase;
+            display: block;
+            // Responsive
+            @media #{$desktop-device}{
+                font-size: 12px;
+            }
+            @media #{$large-mobile}{
+                font-size: 14px;
+            }
+        }
+    }
+    &.funfact-style-two{
+        flex: 0 0 15%;
+        max-width: 15%;
+        padding: 0 30px;
+        border-right: 1px solid #f1f1f1;
+        border-bottom: 0;
+        background: transparent;
+        // Responsive
+        @media #{$desktop-device}{
+            max-width: 20%;
+            flex: 0 0 20%;
+            padding: 0 20px;
+        }
+        @media #{$tablet-device}{
+            max-width: 30%;
+            flex: 0 0 30%;
+            padding: 0 20px;
+        }
+        @media #{$large-mobile}{
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding: 0 20px;
+            text-align: center;
+            border-right: 0;
+            margin-bottom: 20px;
+        }
+        &.width-30{
+            flex: 0 0 30%;
+            max-width: 30%;
+            // Responsive
+            @media #{$large-mobile}{
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+        &.width-100{
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+        &:last-child{
+            border-right: 0;
+        }
+        .funfact-content{
+            // Responsive
+            @media #{$large-mobile}{
+                margin: 0 auto;
+            }
+            .counter{
+                font-size: 34px;
+                line-height: 1.2;
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+.single-funfact-style-4{
+    .funfact-content{
+        .sub-text{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $heading-color-two;
+            margin-bottom: 25px;
+            display: block;
+            max-width: 150px;
+        }
+        .counter{
+            margin-bottom: 18px;
+            color: $heading-color-two;
+            font-size: 46px;
+            font-weight: 600;
+            line-height: 40px;
+            display: block;
+            margin-bottom: 15px;
+            // Responsive
+            @media #{$large-mobile}{
+                font-size: 38px;
+                line-height: 38px;
+            }
+        }
+        .text{
+            font-size: 15px;
+            line-height: 26px;
+            text-transform: uppercase;
+            display: block;
+            // Responsive
+            @media #{$desktop-device}{
+                font-size: 12px;
+            }
+            @media #{$large-mobile}{
+                font-size: 14px;
+            }
+        }
+    }
+}

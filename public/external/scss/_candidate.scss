@@ -1,0 +1,249 @@
+/*----------------------------------------*/
+/*  14. Candidate CSS
+/*----------------------------------------*/
+
+.candidate-head-info{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    // Responsive
+    @media #{$extra-small-mobile}{
+        flex-wrap: wrap;
+    }
+    .candidate-logo{
+        width: 80px;
+        height: auto;
+        border-radius: 5px;
+        text-align: center;
+        margin-right: 30px;
+        overflow: hidden;
+        // Responsive
+        @media #{$extra-small-mobile}{
+            margin-right: 0;
+        }
+        a{
+            display: block;
+            img{
+                width: auto;
+                height: auto;
+                border-radius: 50%;
+            }
+        }
+    }
+    .candidate-content{
+        .candidate-name{
+            font-size: 34px;
+            line-height: 45px;
+            text-transform: capitalize;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 0;
+            // Responsive
+            @media #{$extra-small-mobile}{
+                font-size: 28px;
+                line-height: 1;
+                margin-top: 20px;
+            }
+            i{
+                font-size: 18px;
+                color: $theme-color;
+            }
+        }
+        .candidate-meta{
+            margin-top: 10px;
+            li{
+                display: inline-block;
+                margin-right: 10px;
+                padding-right: 10px;
+                margin-bottom: 7px;
+                position: relative;
+                font-size: 15px;
+                line-height: 1.9;
+                &:last-child{
+                    margin-right: 0px;
+                    padding-right: 0px;
+                }
+                i{
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+                
+            }
+        }
+    }
+    &.color-white{
+        .candidate-content{
+            .candidate-name{
+                color: $white;
+            }
+            .candidate-meta{
+                li{
+                    color: $white;
+                    i{
+                        color: $white;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.candidate-main-content{
+    .field-description, .field-experience, .field-education, .field-award, .field-skills, .field-portfolio, .field-candidate-information{
+        margin-bottom: 60px;
+        // Responsive
+        @media #{$tablet-device}{
+            margin-bottom: 40px;
+        }
+        @media #{$large-mobile}{
+            margin-bottom: 30px;
+        }
+        h3{
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+            margin-bottom: 35px;
+            // Responsive
+            @media #{$large-mobile}{
+                margin-bottom: 15px !important;
+            }
+        }
+        p{
+            margin-bottom: 20px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .field-experience, .field-education, .field-award{
+        h3{
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 36px;
+            margin-bottom: 35px;
+        }
+    }
+}
+
+.experience-item, .education-item{
+    padding: 40px 0;
+    border-bottom: 1px solid #eaeaea;
+    // Responsive
+    @media #{$large-mobile}{
+        padding: 20px 0;
+    }
+    &:first-child{
+        padding-top: 0;
+    }
+    &:last-child{
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+}
+.content-left{
+    // Responsive
+    @media #{$large-mobile}{
+        margin-bottom: 15px;
+    }
+    h5{
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+}
+.content-right{
+    h5{
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    p{
+
+    }
+}
+
+.skill-tag{
+    li{
+        display: inline-block;
+        a{
+            background-color: #f2f5fc;
+            padding: 5px 15px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+            display: inline-block;
+            border-radius: 3px;
+        }
+    }
+}
+
+.portfolio-list{
+    li{
+        display: inline-block;
+        margin-right: 30px;
+        // Responsive
+        @media #{$large-mobile}{
+            margin-right: 15px;
+        }
+        @media #{$extra-small-mobile}{
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+        a{
+           display: block;
+           // Responsive
+           @media #{$extra-small-mobile}{
+                width: 60px;
+            }
+        }
+    }
+}
+
+.meta-field{
+    li{
+        display: block;
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .meta-field-item{
+            div{
+                display: inline-block;
+            }
+            .field-label{
+                i{
+                    width: 40px;
+                    display: inline-block;
+                    font-size: 16px;
+                    color: $theme-color;
+                    vertical-align: middle;
+                }
+                span{
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: $heading-color;
+                    font-weight: 600;
+                    width: 200px;
+                    display: inline-block;
+                    // Responsive
+                    @media #{$extra-small-mobile}{
+                        width: 120px;
+                    }
+                }
+            }
+            .field-value{
+                &.rate{
+                    color: #ff2626;
+                    font-weight: 600;
+                }
+                a{
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+}

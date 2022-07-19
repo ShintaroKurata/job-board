@@ -1,0 +1,398 @@
+/*---------------------------------------
+    02. Color Variation CSS
+-----------------------------------------*/
+
+
+
+@for $i from 1 through length($colorList) {
+    body.template-color-#{$i} {
+
+        /*-- Common CSS --*/
+        .theme-color{
+            color: nth($colorList, $i);
+        }
+        a:hover {
+            color: nth($colorList, $i);
+        }
+
+        /*-- 
+            - Button
+        ------------------------------------------*/
+        a,
+        button {
+            &.ht-btn {
+                background-color: nth($colorList, $i);
+                &.normal-btn{
+                    background-color: nth($colorList, $i);
+                    color: $white;
+                }
+                &.green-btn{
+                    background-color: $theme-color;
+                    color: $white;
+                }
+                &.transparent-btn{
+                    border: 1px solid nth($colorList, $i);
+                    color: nth($colorList, $i);
+                    background-color: transparent;
+                }
+                &.transparent-btn-two{
+                    background-color: transparent;
+                    border: 1px solid nth($colorList, $i);
+                    color: nth($colorList, $i);
+                    &:hover{
+                        background-color: nth($colorList, $i);
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .jetapo-link{
+            a{
+                color: nth($colorList, $i);
+            }
+        }
+        .jetapo-tab-menu{
+            ul{
+                li{
+                    a{
+                        &.active{
+                            color: nth($colorList, $i);
+                        }
+                    }
+                }
+            }
+        }
+
+        /*-- Main Menu --*/
+        .main-menu {
+            & > ul {
+                
+                & > li {
+
+                    & > a {
+                        .label-status{
+                            &.new{
+                                background-color: nth($colorList, $i);
+                            }
+                        }
+                    }
+                    &.active, &:hover {
+                        & > a {
+                            color: nth($colorList, $i);
+                        }
+                    }
+                }
+            }
+        }
+
+        /*-- Search Form --*/
+        .header-search-form {
+            & form {
+                & button {
+                    background-color: nth($colorList, $i);
+                }
+            }
+        }
+
+        /* Popup Mobile CSS */
+        .popup-mobile-manu{
+            .inner{
+        
+                & .mobileheader{
+                    background: nth($colorList, $i);
+                }
+        
+        
+            }
+        }
+
+        .object-custom-menu{
+            & > li{
+                
+                & a{
+                &:hover{
+                    span{
+                        color: nth($colorList, $i);
+                    }
+                }
+            }
+                &.has-mega-menu{
+                    
+                    > a{
+                        &::after{
+                            background: nth($colorList, $i);
+                            color: $white;
+                        }
+                    }
+        
+                    .object-submenu{
+                        li{
+                            a {
+                                &:hover{
+                                    span{
+                                        color: nth($colorList, $i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Bottom Navbar Mobile */
+
+        .bottom-navbar-mobile{
+            .list-actions{
+                li{
+                    a{
+                        background-color: nth($colorList, $i);
+                    }
+                }
+            }
+        }
+
+        /* Bottom Mobile Popup CSS */
+        .job-list-mobile, .notifications-mobile{
+            .heading{
+                background-color: nth($colorList, $i);
+            }
+        }
+
+        /*-- keywords --*/
+        .keywords{
+            &.style-two{
+                ul{
+                    li{
+                        a{
+                            &:hover{
+                                color: nth($colorList, $i);
+                                border-color: nth($colorList, $i);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*-- Single Funfact --*/
+        .single-funfact{
+            &.funfact-style-two{
+                .funfact-content{
+                    .counter{
+                        color: nth($colorList, $i);
+                    }
+                }
+            }
+        } 
+
+        /*-- Single Categories --*/
+        .single-job-categories{
+            .categories-image{
+                i{
+                    color: nth($colorList, $i);
+                }
+            }
+            &:hover{
+                border-color: nth($colorList, $i);
+                .categories-content{
+                    h3{
+                        a{
+                            color: nth($colorList, $i);
+                        }
+                    }
+                    .count-job{
+                        color: nth($colorList, $i);
+                    }
+                }
+            }
+        }
+
+        .single-job-categories-two{
+            border: 1px solid #d0d0d0;
+            &:hover{
+                border-color: nth($colorList, $i);
+            }
+        }
+
+        .list-cat{
+            li{
+                a{
+                    &:hover{
+                        background-color: nth($colorList, $i);
+                        border-color: nth($colorList, $i);
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        /*-- Employer Item --*/
+        .employer-item{
+            .featured-employer-label{
+            }
+            .employer-info-top{
+                .link-openjobs{
+                    background-color: nth($colorList, $i);
+                }
+                
+            }
+        
+            &.border{
+                &:hover{
+                    border-color: nth($colorList, $i) !important;
+                }
+            }
+        }
+        /* Single Job CSS */
+        .job-section{
+            .container{
+                .row{
+                    .col-lg-12{
+                        &:first-child{
+                            .single-job{
+                                &.style-two{
+                                    &:hover{
+                                        border-top: 1px solid nth($colorList, $i);
+                                    }
+                                }
+                            }
+                        }
+                        &:last-child{
+                            .single-job{
+                                &.style-two{
+                                    &:hover{
+                                        border-bottom: 1px solid nth($colorList, $i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .single-job{
+            .job-info{
+                .job-info-inner{
+                    .job-info-top{
+                        .employer-name{
+                            a{
+                                &:hover{
+                                    color: nth($colorList, $i);
+                                }
+                            }
+                        }
+                    }
+                    .job-meta-three{
+                        i{
+                            color: nth($colorList, $i);
+                        }
+                    }
+                    .job-skill-tag{
+                        a{
+                            &:hover{
+                                color: nth($colorList, $i);
+                            }
+                        }
+                    }
+                }
+            }
+            &.style-two{
+                &:hover{
+                    border-color: nth($colorList, $i);
+                    border-bottom: 1px solid nth($colorList, $i);
+                }
+            }
+        }
+        .all-job{
+            p{
+                a{
+                    color: nth($colorList, $i);
+                }
+            }
+        }
+        /* Single Team CSS */
+        .single-team{
+            .item-box{
+                .item-content{
+                    .skills{
+                        .skill-item{
+                            a{
+                                &:hover{
+                                    color: nth($colorList, $i);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            &:hover{
+                .team-content{
+                    .team-title{
+                        a{
+                            color: nth($colorList, $i);
+                        }
+                    }
+                }
+            }
+        }
+        .all-team{
+            a{
+                color: nth($colorList, $i);
+            }
+        }
+
+        /* Single Blog List CSS */
+        .single-list-blog{
+            .blog-content{
+                .blog-meta{
+                    p{
+                        .author{
+                            color: nth($colorList, $i);
+                        }
+                    }
+                }
+            }
+        }
+        .all-articale{
+            a{
+                color: nth($colorList, $i);
+            }
+        }
+
+        /* Hero Content CSS */
+        .hero-content-5{
+            .play-btn{
+                color: nth($colorList, $i);
+            }
+        }
+
+        .single-service{
+            .service-content{
+                a{
+                    color: nth($colorList, $i);
+                }
+            }
+        }
+
+        /*-- Copyright --*/
+        .copyright {
+            & p {
+                
+                & a {
+                    color: nth($colorList, $i);
+                    &:hover {
+                        color: nth($colorList, $i);
+                    }
+                }
+            }
+        }
+        
+
+
+
+
+
+    }
+}

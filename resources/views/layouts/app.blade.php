@@ -60,7 +60,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('brand_owner.register') }}">{{ __('Brand Owner register') }}</a>
+                                    <a class="nav-link" href="{{ route('brand_owner.login_register') }}">{{ __('Brand Owner register') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Buyer Register') }}</a>

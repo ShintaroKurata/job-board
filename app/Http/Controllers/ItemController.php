@@ -14,8 +14,15 @@ class ItemController extends Controller
 {
 
    public function __construct(){
-        $this->middleware(['brand_owner','verified'],['except'=>array('index','show','apply','allitems')]);
+        $this->middleware(['brand_owner','verified'],['except'=>array('welcome','index','show','apply','allitems','searchItems')]);
 
+    }
+
+    public function welcome(){
+        $items=Item::latest()->limit(12)->where('status',1)->get();
+        $brands = Brand::limit(12)->get();
+
+        return view('old_welcome',compact('items','brands'));
     }
 
    public function index(){
@@ -111,9 +118,17 @@ class ItemController extends Controller
             ->paginate(10);
             return view('items.allitems',compact('items'));
         }else{
-        $items=Item::latest()->paginate(10);
-        return view('items.allitems',compact('items'));
+            $items=Item::latest()->paginate(10);
+            return view('items.allitems',compact('items'));
         }
+    }
+
+    public function searchItems(Request $request){
+        $keyword = $request->get('keyword');
+        $item = Item::where('title','LIKE','%'.$keyword.'%')
+            ->limit(5)->get();
+        return response()->json($item);
+
     }
 
 

@@ -24,11 +24,14 @@ use Illuminate\Http\Request;
 */
 
 
-
 Auth::routes(['verify' => true]);
 
+//home
+Route::get('/home',[HomeController::class,'index'])->name('home');
+
+
 //ルート
-Route::get('/', [ItemController::class,'index']);
+Route::get('/', [ItemController::class,'index'])->name('index');
 
 //Email Verification
 Route::get('/email/verify', function () {
@@ -45,6 +48,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 
 //items
+Route::get('/items',[ItemController::class,'welcome'])->name('items.welcome');
 Route::get('/items/{id}/edit',[ItemController::class,'edit'])->name('items.edit');
 Route::post('/items/{id}/edit',[ItemController::class,'update'])->name('items.update');
 Route::get('/items/create', [ItemController::class,'create'])->name('items.create');
@@ -70,9 +74,13 @@ Route::post('/user/coverletter',[UserController::class,'coverletter'])->name('co
 Route::post('/user/resume',[UserController::class,'resume'])->name('resume');
 Route::post('/user/avatar',[UserController::class,'avatar'])->name('avatar');
 
+
+//buyer view
+Route::view('/buyer/login-register','auth.login_register_buyer')->name('buyer.login_register');
+
 //brand-owner view
-Route::view('brand-owner/register','auth.brand-owner-register')->name('brand_owner.register');
-Route::post('brand-owner/register',[BrandOwnerRegisterController::class,'brandownerRegister'])->name('brd.register');
+Route::view('/brand-owner/login-register','auth.login_register_brand')->name('brand_owner.login_register');
+Route::post('/brand-owner/register',[BrandOwnerRegisterController::class,'brandownerRegister'])->name('brd.register');
 Route::post('/applications/{id}',[ItemController::class,'apply'])->name('apply');
 
 
@@ -81,8 +89,6 @@ Route::post('/save/{id}',[FavouriteController::class,'saveItem']);
 Route::post('/unsave/{id}',[FavouriteController::class,'unSaveItem']);
 
 
-//home
-Route::get('/home',[HomeController::class,'index'])->name('home');
-
-
+//search
+Route::get('/items/search',[ItemController::class,'searchItems']);
 

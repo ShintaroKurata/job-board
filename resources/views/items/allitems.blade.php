@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-md-3 form-group">
                         <label>価格</label>
-                        <input type="text" name="price" class="form-control">&nbsp;&nbsp;&nbsp;
+                        <input type="number" name="price" class="form-control">&nbsp;&nbsp;&nbsp;
                     </div>
                     <div class="col-md-3 form-group">
                         <button type="submit" class="btn btn-outline-success">検索する</button>

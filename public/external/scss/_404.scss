@@ -1,0 +1,98 @@
+/*----------------------------------------*/
+/*  39. 404 CSS
+/*----------------------------------------*/
+
+.error-404 {
+	text-align: center;
+    color: $white;
+    .text-404 {
+        background-image: url(../images/404/bg-title-404.png);
+        background-position: center center;
+        padding: 180px 0;
+        background-repeat: no-repeat;
+        background-size: auto;
+        margin-bottom: 26px;
+        margin-top: 50px;
+    }
+    .text-label-404{
+        max-width: 540px;
+        margin: 0 auto 14px;
+        h1{
+            display: block;
+            font-size: 30px;
+            line-height: 1.9;
+            font-weight: 700;
+            text-transform: uppercase;
+            // Responsive
+            @media #{$small-mobile}{
+                font-size: 26px;
+                line-height: 1.2;
+            }
+            @media #{$extra-small-mobile}{
+                font-size: 26px;
+                line-height: 1.2;
+            }
+        }
+    }
+    .home-link{
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+        line-height: 21px;
+        max-width: 540px;
+        margin: 0 auto 30px;
+        a{
+            color: $theme-color;
+            display: inline;
+        }
+    }
+}
+.search-404 {
+	max-width: 470px;
+    margin: 0 auto;
+    .search-box{
+        position: relative;
+        .top-search{
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px 145px 10px 20px;
+            height: auto;
+            line-height: inherit;
+            color: #4a4a4a;
+            width: 100%;
+            border: 1px solid #d0d0d0;
+            // Responsive
+            @media #{$extra-small-mobile}{
+                padding: 10px 15px;
+            }
+        }
+        .search-submit{
+            font-size: 14px;
+            color: $white;
+            background-color: $theme-color;
+            font-weight: 600;
+            position: absolute;
+            height: calc(100% - 10px);
+            right: 5px;
+            top: 5px;
+            padding: 0 25px;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            border-radius: 4px;
+            i{
+                margin-right: 5px;
+                position: relative;
+                top: 1px;
+                font-weight: 700;
+            }
+            // Responsive
+            @media #{$extra-small-mobile}{
+                position: static;
+                height: 50px;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    }
+}

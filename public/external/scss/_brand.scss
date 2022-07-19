@@ -1,0 +1,81 @@
+/*----------------------------------------*/
+/*  29. Brand CSS
+/*----------------------------------------*/
+
+.brand-title{
+    text-align: center;
+    p{
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: -.6px;
+        span{
+            color: $heading-color-two;
+        }
+    }
+}
+
+.brand-section{
+    .row{
+        .col-xl-2{
+            &:last-child{
+                .single-brand{
+                    &.right-border{
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.brand-heading{
+    padding: 15px;
+    // Responsive
+    @media #{$tablet-device}{
+        padding: 0;
+    }
+    h3{
+        color: #605e5e;
+        font-size: 28px;
+        font-weight: 700;
+        text-transform: none;
+        line-height: 28px;
+        // Responsive
+        @media #{$tablet-device}{
+            font-size: 20px;
+            line-height: 24px;
+        }
+        @media #{$large-mobile}{
+            text-align: center;
+        }
+    }
+    h4{
+        color: #999;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        // Responsive
+        @media #{$large-mobile}{
+            text-align: center;
+        }
+    }
+}
+
+.single-brand{
+    padding: 15px;
+    text-align: center;
+    &.right-border{
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        border-color: #f1f1f1;
+        // Responsive
+        @media #{$large-mobile}{
+            border-right: 0;
+        }
+    }
+    a{
+        display: block;
+    }
+}

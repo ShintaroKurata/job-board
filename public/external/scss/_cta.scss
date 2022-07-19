@@ -1,0 +1,123 @@
+/*----------------------------------------*/
+/*  34. CTA CSS
+/*----------------------------------------*/
+
+.mt--275{
+    margin-top: -275px;
+}
+
+.height-100vh{
+    height: 100vh;
+}
+.bg-image-cta{
+    background-image: url("../images/bg/Vector-Smart-Object3.png");
+    background-position: 232px 0;
+    background-repeat: no-repeat;
+    padding-bottom: 420px;
+    // Responsive
+    @media #{$laptop-device}{
+        padding-bottom: 100px;
+    }
+    @media #{$desktop-device}{
+        padding-bottom: 0px;
+    }
+    @media #{$tablet-device}{
+        padding-bottom: 0px;
+    }
+    @media #{$large-mobile}{
+        padding-bottom: 0px;
+    }
+}
+
+.cta-info{
+    text-align: center;
+    span{
+        font-size: 15px;
+        line-height: 28px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 7px;
+        display: block;
+    }
+    h3{
+        font-size: 35px;
+        line-height: 45px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        // Responsive
+        @media #{$large-mobile}{
+            font-size: 22px;
+            line-height: 28px;
+        }
+    }
+    p{
+        font-size: 15px;
+        line-height: 24px;
+    }
+    a{
+        margin: 36px 0 40px;
+        // Responsive
+        @media #{$large-mobile}{
+            margin: 36px 0 20px;
+        }
+        i{
+            font-size: 23px;
+            line-height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.call-content {
+    // Responsive
+    @media #{$tablet-device}{
+        margin-bottom: 30px;
+    }
+    @media #{$large-mobile}{
+        margin-bottom: 30px;
+    }
+    .title{
+        font-size: 30px;
+        text-transform: uppercase;
+        color: $white;
+        line-height: 1;
+        font-weight: 700;
+        margin-bottom: 15px;
+        // Responsive
+        @media #{$large-mobile}{
+            font-size: 26px;
+        }
+        span{
+            font-weight: 300;
+        }
+    }
+    p{
+        font-size: 16px;
+        line-height: 1;
+        color: $white;
+        margin-bottom: 0;
+    }
+}
+
+.cta-content{
+    .title{
+        color: $heading-color-two;
+        font-size: 44px;
+        line-height: 60px;
+        letter-spacing: -2.5px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        // Responsive
+        @media #{$tablet-device}{
+            font-size: 38px;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+        @media #{$large-mobile}{
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+    }
+}
