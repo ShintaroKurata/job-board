@@ -7,7 +7,7 @@
                         <!--Logo start-->
                         <div class="col-xl-2 col-lg-2 col-12">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                                <a href="/"><img src="{{asset('external/images/fashionate_logo.png')}}" alt="logo"></a>
                             </div>
                         </div>
                         <!--Logo end-->
@@ -55,21 +55,76 @@
                         <div class="col-xl-5 col-lg-5 col-12">
                             <div class="header-btn-action d-flex justify-content-end">
                                 <div class="btn-action-wrap d-flex">
-                                    <div class="jp-author item">
-                                        <a href="{{route('buyer.login_register')}}">
-                                            <i class="lnr lnr-user"></i>
-                                            <span>Buyer Login</span>
-                                        </a>
-                                    </div>
-                                    <div class="jp-author item">
-                                        <a href="{{route('brand_owner.login_register')}}">
-                                            <i class="lnr lnr-user"></i>
-                                            <span>Brand Owner Login</span>
-                                        </a>
-                                    </div>
-                                    <div class="jp-author-action item">
-                                        <a href="#quick-view-modal-container" data-toggle="modal"> <span>Brand</span> <span class="fw-400">Post a Item</span></a>
-                                    </div>
+                                    @guest
+                                            @if (Route::has('login'))
+                                            <div class="jp-author item">
+                                                <a href="{{route('buyer.login_register')}}">
+                                                    <i class="lnr lnr-user"></i>
+                                                    <span>Buyer Login</span>
+                                                </a>
+                                            </div>
+                                            <div class="jp-author item">
+                                                <a href="{{route('brand_owner.login_register')}}">
+                                                    <i class="lnr lnr-user"></i>
+                                                    <span>Brand Owner Login</span>
+                                                </a>
+                                            </div>
+                                            @endif
+
+                                            <div class="jp-author-action item">
+                                                <a href="{{route('items.create')}}" data-toggle="modal"> <span>Brand</span> <span class="fw-400">Post an Item</span></a>
+                                            </div>
+                                    @else
+                                        @if(Auth::user()->user_type=='brand_owner')
+                                            <div class="jp-author-action item">
+                                                <a href="{{route('items.create')}}" data-toggle="modal"> <span>Brand</span> <span class="fw-400">Post an Item</span></a>
+                                            </div>
+                                        @endif
+                                            <nav class="main-menu">
+                                                <ul>
+                                                        <li>
+
+                                                                @if(Auth::user()->user_type=='brand_owner')
+                                                                <a>
+                                                                {{Auth::user()->brand->brand_name}} <small class="icon-arrow"></small>
+                                                                </a>
+                                                                @else
+                                                                <a>
+                                                                {{Auth::user()->name}} <small class="icon-arrow"></small>
+                                                                </a>
+                                                                @endif
+                                                                <ul class="sub-menu">
+                                                                        <li>
+                                                                            @if(Auth::user()->user_type =='brand_owner')
+                                                                                <a class="dropdown-item" href="{{ route('brand.view') }}">
+                                                                                    {{ __('ブランドプロフィール') }}
+                                                                                </a>
+                                                                                <a class="dropdown-item" href="{{route('items.myitems')}}">
+                                                                                    {{__('投稿した商品')}}
+                                                                                </a>
+                                                                            @else
+                                                                                <a class="dropdown-item" href="{{route('user.profile')}}">
+                                                                                    {{ __('プロフィール') }}
+                                                                                </a>
+                                                                                <a class="dropdown-item" href="{{route('home')}}">
+                                                                                    {{ __('お気に入りの商品') }}
+                                                                                </a>
+                                                                            @endif
+                                                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                            onclick="event.preventDefault();
+                                                                                            document.getElementById('logout-form').submit();">
+                                                                                {{ __('ログアウト') }}
+                                                                            </a>
+
+                                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                                                @csrf
+                                                                            </form>
+                                                                        </li>
+                                                                </ul>
+                                                         </li>
+                                                </ul>
+                                            </nav>
+                                         @endguest
                                 </div>
                             </div>
                         </div>

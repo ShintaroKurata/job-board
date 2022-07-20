@@ -1,5 +1,5 @@
 <!-- Place favicon.ico in the root directory -->
-<link href="{{asset('external/images/favicon.ico')}}" type="img/x-icon" rel="shortcut icon">
+<link href="{{asset('external/images/fashionate_favicon.ico')}}" type="img/x-icon" rel="shortcut icon">
 <!-- All css files are included here. -->
 <link rel="stylesheet" href="{{asset('external/css/vendor/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('external/css/vendor/iconfont.min.css')}}">

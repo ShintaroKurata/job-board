@@ -7,13 +7,13 @@
                     <!--Logo start-->
                     <div class="col-xl-2 col-lg-2 col-12">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo-white.png" alt=""></a>
+                            <a href="/"><img src="{{asset('external/images/fashionate_logo.png')}}" alt="logo"></a>
                         </div>
                     </div>
                     <!--Logo end-->
 
                     <!--Menu start-->
-                    <div class="col-xl-7 col-lg-7 col-12">
+                    <div class="col-xl-5 col-lg-5 col-12">
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="/">Home </a>
@@ -55,17 +55,23 @@
                     <!--Menu end-->
 
                     <!-- Cart & Search Area Start -->
-                    <div class="col-xl-3 col-lg-3 col-12">
+                    <div class="col-xl-5 col-lg-5 col-12">
                         <div class="header-btn-action d-flex justify-content-end">
                             <div class="btn-action-wrap d-flex">
                                 <div class="jp-author item">
-                                    <a href="login-register.html">
+                                    <a href="{{route('buyer.login_register')}}">
                                         <i class="lnr lnr-user"></i>
-                                        <span>Login</span>
+                                        <span>Buyer Login</span>
+                                    </a>
+                                </div>
+                                <div class="jp-author item">
+                                    <a href="{{route('brand_owner.login_register')}}">
+                                        <i class="lnr lnr-user"></i>
+                                        <span>Brand Owner Login</span>
                                     </a>
                                 </div>
                                 <div class="jp-author-action item">
-                                    <a href="#quick-view-modal-container" data-toggle="modal"> <span>Employer</span> <span class="fw-400">Post a job</span></a>
+                                    <a href="#quick-view-modal-container" data-toggle="modal"> <span>Brand</span> <span class="fw-400">Post an item</span></a>
                                 </div>
                             </div>
                         </div>

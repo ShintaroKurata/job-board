@@ -36,26 +36,49 @@
                             <div class="tab-content">
                                 <div id="login" class="tab-pane fade show active">
                                     <div class="login-register-form">
-                                        <form action="#" method="post">
-                                            <p>Login to Jotopa with your registered account</p>
+                                        @if(Session::has('message'))
+                                        <div class="alert alert-success">
+                                            {{Session::get('message')}}
+                                        </div>
+                                        @endif
+                                        <form action="{{route('login')}}" method="post">@csrf
+                                            <p>登録済みのバイヤーの方は、こちらからログインしてください。</p>
+
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="single-input">
-                                                        <input type="text" placeholder="Username or Email" name="name">
+                                                        <input type="text" class = "form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" required autocomplete="email" autofocus>
+                                                        @error('email')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="single-input">
-                                                        <input type="password" placeholder="Password" name="password">
+                                                        <input type="password"  class = "form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+                                                        @error('password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="checkbox-input">
-                                                        <input type="checkbox" name="login-form-remember" id="login-form-remember">
+                                                        <input type="checkbox" name="login-form-remember" id="login-form-remember" {{ old('remember') ? 'checked' : '' }}>
                                                         <label for="login-form-remember">Remember me</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 mb-25"><button class="ht-btn">Login</button></div>
+                                                <div class="col-12 mb-25">
+                                                    <button type="submit" class="ht-btn">Login</button>
+                                                    @if (Route::has('password.request'))
+                                                        <a href="{{ route('password.request') }}">
+                                                            Forgot Your Password?
+                                                        </a>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </form>
                                         <div class="divider">
@@ -74,48 +97,84 @@
                                 </div>
                                 <div id="register" class="tab-pane fade">
                                     <div class="login-register-form">
-                                        <form action="#" method="post">
-                                            <p>Create Your account</p>
-                                            <div class="row row-5">
-                                                <div class="col-12">
-                                                    <div class="single-input">
-                                                        <input type="text" placeholder="Your Username" name="name">
-                                                    </div>
+                                        <form method="POST" action="{{ route('register') }}">@csrf
+                                            <p>バイヤーの方は、こちらからご登録ください。</p>
+                                            <input type="hidden" value="buyer" name="user_type">
+                                            <div class="col-12">
+                                                <div class="single-input">
+                                                        <input id="name" type="text" placeholder="ユーザーネーム" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                                        @error('name')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="single-input">
-                                                        <input type="email" placeholder="Your Email Address" name="emain">
-                                                    </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="single-input">
+                                                        <input id="email" type="email" placeholder="メールアドレス" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                                        @error('email')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <div class="single-input">
-                                                        <input type="password" placeholder="Password" name="password">
-                                                    </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="single-input">
+                                                    <input id="datepicker" type="date" placeholder="生年月日" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
+
+                                                    @error('dob')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <div class="single-input">
-                                                        <input type="password" placeholder="Confirm Password" name="conPassword">
-                                                    </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="single-input">
+                                                        <input id="password" type="password" placeholder="パスワード" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                                        @error('password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="checkbox-input">
-                                                        <input type="checkbox" name="login-form-candidate" id="login-form-candidate">
-                                                        <label for="login-form-candidate">I am a candidate</label>
-                                                    </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="single-input">
+                                                        <input id="password-confirm" type="password" placeholder="パスワード（確認）" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                                 </div>
-                                                <div class="col-6">
-                                                    <div class="checkbox-input">
-                                                        <input type="checkbox" name="login-form-employer" id="login-form-employer">
-                                                        <label for="login-form-employer">I am a employer</label>
-                                                    </div>
+                                            </div>
+
+
+
+                                            <div class="col-6">
+                                                <div class="radio-input">
+                                                    <input type="radio" name="gender" value="男性" id="login-form-male" required="">
+                                                    <label for="login-form-male">男性</label>
+                                                    <input type="radio" name="gender" value="女性" id="login-form-female" required="">
+                                                    <label for="login-form-female">女性</label>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="register-account">
-                                                        <input id="register-terms-conditions" type="checkbox" class="checkbox" checked="" required="">
-                                                        <label for="register-terms-conditions">I read and agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mb-25"><button class="ht-btn">Register</button></div>
+                                            </div>
+                                                    @error('gender')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+
+                                            <div class="col-12 mb-25">
+                                                    <button type="submit" class="ht-btn">
+                                                        {{ __('Register') }}
+                                                    </button>
                                             </div>
                                         </form>
                                         <div class="divider">
@@ -138,13 +197,14 @@
                     <div class="col-lg-8">
                         <div class="login-instruction">
                             <div class="login-instruction-content">
-                                <h3 class="title">Why Login To Us</h3>
-                                <p>It’s important for you to have an account and login in order to have full access at Jotopa. We need to know your account details in order to allow work together</p>
+                                <h3 class="title">会員登録したら、できること。</h3>
+                                <p>アパレルビジネスは、商品が存在するだけでは成り立ちません。</p>
+                                <p>それを店頭に並べ、お客様との接点を作る必要があります。あなたのような優秀なバイヤーに見つけてもらいたいブランドオーナーはたくさんいます。ブランドが更なる発展をするには、あなたのようなプロの目利きによってその商品価値を認めてもらうことが必要です。</p>
                                 <ul class="list-reasons">
-                                    <li class="reason">Be alerted to the latest jobs</li>
-                                    <li class="reason">Apply for jobs with a single click</li>
-                                    <li class="reason">Showcase your CV to thousands of employers</li>
-                                    <li class="reason">Keep a record of all your applications</li>
+                                    <li class="reason" style="font-size: 11px;">あなたがお店を持っている場合、あなたのお店に仕入れたい商品を買うことができます。</li>
+                                    <li class="reason" style="font-size: 11px;">あなたがアパレルバイヤーとして活躍している場合、新たな商品と出会うことができます。</li>
+                                    <li class="reason" style="font-size: 11px;">あなたがアパレルバイヤーとして認知を高めたい場合、そのプロフィールをブランド担当者に見せることができます。</li>
+                                    <li class="reason" style="font-size: 11px;">効率よく商品を仕入れるためのサーチツールとして活用することできます。</li>
                                 </ul>
                                 <span class="sale-text theme-color border-color">Login today &amp; Get 15% Off Coupon for the first planning purchase</span>
                             </div>
