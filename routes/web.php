@@ -27,7 +27,7 @@ use Illuminate\Http\Request;
 Auth::routes(['verify' => true]);
 
 //home
-Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/buyer/profile',[HomeController::class,'index'])->name('home');
 
 
 //ルート
@@ -39,7 +39,7 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect('/home');
+        return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -60,19 +60,20 @@ Route::get('/items/applications',[ItemController::class,'applicant'])->name('ite
 
 
 
-//brand
+//brand profile
 Route::get('/brands/{id}/{brand}',[BrandController::class,'index'])->name('brand.index');
-Route::get('/brands/create',[BrandController::class,'create'])->name('brand.view');
-Route::post('/brands/create',[BrandController::class,'store'])->name('brand.store');
+Route::get('/brands/profile',[BrandController::class,'create'])->name('brand.view');
+Route::post('/brands/profile',[BrandController::class,'store'])->name('brand.store');
 Route::post('/brands/logo',[BrandController::class,'brandLogo'])->name('brandlogo');
 Route::post('/brands/coverphoto',[BrandController::class,'coverPhoto'])->name('cover.photo');
 
-//user profile
-Route::get('/user/profile',[UserController::class,'index'])->name('user.profile');
-Route::post('/user/profile/create',[UserController::class,'store'])->name('profile.create');
+//buyer profile
+Route::get('/buyer/profile',[UserController::class,'create'])->name('buyer.view');
+Route::post('/buyer/profile',[UserController::class,'store'])->name('buyer.store');
 Route::post('/user/coverletter',[UserController::class,'coverletter'])->name('cover.letter');
 Route::post('/user/resume',[UserController::class,'resume'])->name('resume');
-Route::post('/user/avatar',[UserController::class,'avatar'])->name('avatar');
+Route::post('/buyer/avatar',[UserController::class,'avatar'])->name('avatar');
+Route::get('/items/favourite',[UserController::class,'favourite'])->name('items.favourite');
 
 
 //buyer view

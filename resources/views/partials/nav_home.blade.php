@@ -7,7 +7,7 @@
                     <!--Logo start-->
                     <div class="col-xl-2 col-lg-2 col-12">
                         <div class="logo">
-                            <a href="/"><img src="{{asset('external/images/fashionate_logo.png')}}" alt="logo"></a>
+                            <a href="/"><img src="{{asset('external/images/fashionate_logo.png')}}" style="width: 80%;" alt="logo"></a>
                         </div>
                     </div>
                     <!--Logo end-->
@@ -20,10 +20,7 @@
                                 </li>
                                 <li><a href="{{route('items.welcome')}}">Items</a>
                                 </li>
-                                <li><a href="candidates-listing.html">Buyer</a>
-                                </li>
-                                <li><a href="#">Brands</a>
-                                </li>
+                                <li><a href="#">Brands</a></li>
                                 <li><a href="blog.html">Blog <small class="icon-arrow"></small></a>
                                     <ul class="sub-menu">
                                         <li><a href="blog-details.html">Single Post</a></li>

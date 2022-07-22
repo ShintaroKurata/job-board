@@ -18,22 +18,6 @@
                         @endif
                 </div>
             <!--会員登録完了メッセージ end-->
-
-            @if(Auth::user()->user_type == 'buyer')
-            @foreach($items as $item)
-            <div class="card">
-                <div class="card-header">{{$item->title}}</div>
-                {{-- <small class="badge badge-primary">{{$item->category->name}}</small> --}}
-                <div class="card-body">
-                    {{$item->description}}
-                </div>
-                <div class="card-footer">
-                    <span><a href="{{route('items.show',[$item->id,$item->slug])}}">商品詳細を見る</a></span>
-                    <span class="float-end">締切日：{{$item->last_date}}</span>
-                </div>
-            </div>
-            @endforeach
-            @endif
         </div>
     </div>
 </div>
@@ -119,7 +103,7 @@
                                                     {{-- アイコン画像アップロード end --}}
 
                                                     <div class="col-lg-10">
-                                                        <form action="{{route('profile.create')}}" method="POST">@csrf
+                                                        <form action="{{route('buyer.store')}}" method="POST">@csrf
                                                                     <div class="row">
 
                                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">

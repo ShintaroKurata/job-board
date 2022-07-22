@@ -47,7 +47,7 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="single-input">
-                                                        <input type="text" class = "form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" required autocomplete="email" autofocus>
+                                                        <input type="text" class = "form-control @error('email') is-invalid @enderror" placeholder="メールアドレス" name="email" required autocomplete="email" autofocus>
                                                         @error('email')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="single-input">
-                                                        <input type="password"  class = "form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+                                                        <input type="password"  class = "form-control @error('password') is-invalid @enderror" placeholder="パスワード" name="password" required autocomplete="current-password">
                                                         @error('password')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                                             <input type="hidden" value="buyer" name="user_type">
                                             <div class="col-12">
                                                 <div class="single-input">
-                                                        <input id="name" type="text" placeholder="ユーザーネーム" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                        <input id="name" type="text" placeholder="ユーザー名" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                                         @error('name')
                                                             <span class="invalid-feedback" role="alert">

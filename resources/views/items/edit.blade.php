@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">アイテム情報を投稿する</div>
+                <div class="card-header">商品情報を更新する</div>
                 <form action="{{route('items.update',[$item->id])}}" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group">

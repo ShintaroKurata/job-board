@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use Auth;
 
 class UserController extends Controller
 {
@@ -13,8 +14,8 @@ class UserController extends Controller
 
     }
 
-    public function index(){
-        return view('profile.index');
+    public function create(){
+        return view('profile.create');
     }
 
     public function store(Request $request){
@@ -29,7 +30,13 @@ class UserController extends Controller
             'address'=>request('address'),
             'experience'=>request('experience'),
             'bio'=>request('bio'),
-            'phone_number'=>request('phone_number')
+            'phone_number'=>request('phone_number'),
+            'home_page'=>request('home_page'),
+            'twitter_url'=>request('twitter_url'),
+            'instagram_url'=>request('instagram_url'),
+            'tiktok_url'=>request('tiktok_url'),
+            'youtube_url'=>request('youtube_url'),
+            'note_url'=>request('note_url')
         ]);
 
         return redirect()->back()->with('message','情報は正常に更新されました！');
@@ -71,6 +78,11 @@ class UserController extends Controller
             return redirect()->back()->with('message','プロフィール画像は正常に更新されました！');
         }
 
+    }
+    public function favourite(){
+        // $item=Item::find($id);
+        $items = Auth::user()->favourites;
+        return view('items.favourite',compact('items'));
     }
 
 }

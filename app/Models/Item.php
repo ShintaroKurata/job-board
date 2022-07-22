@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\User;
 
 class Item extends Model
@@ -21,6 +22,10 @@ class Item extends Model
 
     public function brand(){
         return $this->belongsTo(Brand::class);
+    }
+
+    public function category(){
+        return $this->belongsToMany(Category::class,'category_id');
     }
 
     public function users(){

@@ -20,11 +20,16 @@ return new class extends Migration
             $table->string('slug')->nullable();;
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->string('website')->nullable();
             $table->string('logo')->nullable();
             $table->string('cover_photo')->nullable();
-            $table->string('slogan')->nullable();
+            $table->string('catch_copy')->nullable();
             $table->string('description')->nullable();
+            $table->text('home_page')->nullable();
+            $table->text('twitter_url')->nullable();
+            $table->text('instagram_url')->nullable();
+            $table->text('tiktok_url')->nullable();
+            $table->text('youtube_url')->nullable();
+            $table->text('note_url')->nullable();
             $table->timestamps();
         });
     }

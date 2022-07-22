@@ -1,8 +1,6 @@
 <template>
-    <div>
-            <button v-if="show"  @click.prevent="unsave()" class="btn btn-dark" style="width:100%">お気に入りから削除</button>
-            <button v-else @click.prevent="save()" class="btn btn-primary" style="width:100%">お気に入りに追加</button>
-    </div>
+            <button v-if="show"  @click.prevent="unsave()" class="save-job ht-btn text-center"><i class="far fa-heart"></i>Remove</button>
+            <button v-else @click.prevent="save()" class="save-job ht-btn text-center"><i class="far fa-heart"></i>favorite</button>
 </template>
 
 <script>

@@ -24,10 +24,15 @@ class BrandFactory extends Factory
             'slug'=>$slug,
             'address'=>$this->faker->address,
             'phone'=>$this->faker->phoneNumber,
-            'website'=>$this->faker->domainName,
             'logo'=>'t-shirt.png',
             'cover_photo'=>'cover-image.jpg',
-            'slogan'=>'learn-earn and grow',
+            'catch_copy'=>'learn-earn and grow',
+            'home_page'=>$this->faker->domainName,
+            'twitter_url'=>$this->faker->domainName,
+            'instagram_url'=>$this->faker->domainName,
+            'tiktok_url'=>$this->faker->domainName,
+            'youtube_url'=>$this->faker->domainName,
+            'note_url'=>$this->faker->domainName,
             'description'=>$this->faker->realText
         ];
     }

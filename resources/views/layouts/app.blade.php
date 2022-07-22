@@ -88,10 +88,10 @@
                                             {{__('投稿した商品')}}
                                         </a>
                                     @else
-                                        <a class="dropdown-item" href="{{route('user.profile')}}">
+                                        <a class="dropdown-item" href="{{route('buyer.view')}}">
                                             {{ __('プロフィール') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{route('home')}}">
+                                        <a class="dropdown-item" href="{{route('items.favourite')}}">
                                             {{ __('お気に入りの商品') }}
                                         </a>
                                     @endif

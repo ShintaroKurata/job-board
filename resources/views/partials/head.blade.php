@@ -12,3 +12,4 @@
 <link rel="stylesheet" href="{{asset('external/css/style.min.css')}}">
 <!-- Modernizr JS -->
 <script src="{{asset('external/js/vendor/modernizr-3.10.0.min.js')}}"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
 use App\Models\Brand;
 use App\Models\Item;
 
@@ -26,8 +27,8 @@ class BrandController extends Controller
         $this->validate($request,[
             'address'=>'required',
             'phone'=>'required|regex:/(0)[0-9]{10}/',
-            'website'=>'required',
-            'slogan'=>'required|min:20',
+            'home_page'=>'required',
+            'catch_copy'=>'required|min:20',
             'description'=>'required|min:20'
         ]);
 
@@ -35,9 +36,14 @@ class BrandController extends Controller
         Brand::where('user_id',$user_id)->update([
             'address'=>request('address'),
             'phone'=>request('phone'),
-            'website'=>request('website'),
-            'slogan'=>request('slogan'),
-            'description'=>request('description')
+            'catch_copy'=>request('catch_copy'),
+            'description'=>request('description'),
+            'home_page'=>request('home_page'),
+            'twitter_url'=>request('twitter_url'),
+            'instagram_url'=>request('instagram_url'),
+            'tiktok_url'=>request('tiktok_url'),
+            'youtube_url'=>request('youtube_url'),
+            'note_url'=>request('note_url')
         ]);
 
         return redirect()->back()->with('message','情報は正常に更新されました！');

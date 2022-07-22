@@ -34,8 +34,11 @@ class ItemController extends Controller
 
     public function show($id,Item $item){
         // $item=Item::find($id);
-        return view('items.show',compact('item'));
+        $items=Item::latest()->paginate(10);
+        return view('items.show',compact('item','items'));
     }
+
+
 
     public function brand(){
         return view('brand.index');

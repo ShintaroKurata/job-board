@@ -9,19 +9,8 @@
                 <div class="col-xl-4 col-lg-3 col-md-6">
                     <!-- Footer Widget Start -->
                     <div class="footer-widget mb-30">
-                        <h6 class="title">Contact Info</h6>
-                        <div class="address">
-                            <i class="lnr lnr-map-marker"></i>
-                            <span>8375 E. Heather Drive Tonawanda, Manchester 14150, United Kingdom</span>
-                        </div>
-                        <div class="email">
-                            <i class="lnr lnr-envelope"></i>
-                            <span>jopota@recruitment.com</span>
-                        </div>
-                        <div class="phone theme-color">(+1) 000 987-1234</div>
-                        <div class="footer-widget-image d-flex mt-35">
-                            <a class="mr-5" href="#"><img src="assets/images/app-store/app-store-2.png" alt=""></a>
-                            <a href="#"><img src="assets/images/app-store/app-chplay-2.png" alt=""></a>
+                        <div class="logo">
+                            <a href="/"><img src="{{asset('external/images/fashionate_logo.png')}}" style="width: 80%;" alt="logo"></a>
                         </div>
                     </div>
                     <!-- Footer Widget End -->
@@ -33,12 +22,10 @@
                         <h6 class="title">Useful Links</h6>
                         <div class="footer-widget-link">
                             <ul>
-                                <li><a href="#">Press Corner</a></li>
-                                <li><a href="#">Policy Privacy</a></li>
-                                <li><a href="#">Terms And Conditions</a></li>
-                                <li><a href="#">Partner</a></li>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">利用規約</a></li>
+                                <li><a href="#">プライバシーポリシー</a></li>
+                                <li><a href="#">会社概要</a></li>
+                                <li><a href="#">お問い合わせ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -48,15 +35,12 @@
                 <div class="col-xl-2 col-lg-3 col-md-6">
                     <!-- Footer Widget Start -->
                     <div class="footer-widget mb-30">
-                        <h6 class="title">Featured Jobs</h6>
+                        <h6 class="title">Featured Items</h6>
                         <div class="footer-widget-link">
                             <ul>
-                                <li><a href="#">Teachers</a></li>
-                                <li><a href="#">Accounting</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Digital Marketing</a></li>
-                                <li><a href="#">Web & Software Dev</a></li>
-                                <li><a href="#">Science & Analitycs</a></li>
+                                @foreach(App\Models\Category::all() as $cat)
+                                       <li>{{$cat->name}}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -66,7 +50,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <!-- Footer Widget Start -->
                     <div class="footer-widget mb-30">
-                        <h6 class="title">Newsletter</h6>
+                        <h6 class="title">News Letter</h6>
                         <div class="newsletter">
                             <p>Join our email subscription now to get updates on <strong>new jobs</strong> and <strong>notifications</strong>.</p>
                             <div class="newsletter-form">
@@ -97,7 +81,7 @@
             <div class="row g-0 st-border pt-35 pb-35 align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright">
-                        <p>&copy;2020 <a href="https://hasthemes.com/">Jetapo</a>. All rights reserved.</p>
+                        <p>&copy;2022 <a href="">FASHIONATE</a>. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">

@@ -30,7 +30,7 @@
             <div class="card">
                     <div class="card-header">プロフィール内容を更新する</div>
 
-                    <form action="{{route('profile.create')}}" method="POST">@csrf
+                    <form action="{{route('buyer.store')}}" method="POST">@csrf
 
                         <div class="card-body">
                                     <div class="form-group">

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
+use App\Models\Brand;
+use App\Models\Item;
+use App\Models\User;
 use Auth;
 
 
@@ -26,6 +30,6 @@ class HomeController extends Controller
     public function index()
     {
         $items = Auth::user()->favourites;
-        return view('home',compact('items'));
+        return view('profile.index',compact('items'));
     }
 }
