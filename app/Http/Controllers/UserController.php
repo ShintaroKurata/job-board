@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\Brand;
+use App\Models\User;
 use Auth;
 
 class UserController extends Controller
@@ -15,7 +17,8 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('profile.create');
+        $user = Auth::user();
+        return view('profile.create',compact('user'));
     }
 
     public function store(Request $request){
@@ -83,6 +86,36 @@ class UserController extends Controller
         // $item=Item::find($id);
         $items = Auth::user()->favourites;
         return view('items.favourite',compact('items'));
+    }
+
+    public function dashboard(){
+        $items = Auth::user()->item_user;
+        $fav_items = Auth::user()->favourites;
+        return view('profile.dashboard',compact('items','fav_items'));
+    }
+
+    public function buyerProfile($id){
+        $user = Auth::user();
+        return view('profile.profile',compact('user'));
+    }
+
+    public function allbrands(Request $request){
+        $keyword = $request->get('title');
+        $category = $request->get('category_id');
+        $address = $request->get('address');
+        $price = $request->get('price');
+
+        if($keyword||$category||$address||$price){
+            $brands = Brand::where('title','LIKE','%{$keyword}%')
+            ->orwhere('category_id','=',$category)
+            ->orwhere('address','LIKE','%{$address}%')
+            ->orwhere('price','LIKE','%'.$price.'%')
+            ->paginate(10);
+            return view('brand.allbrands',compact('brands'));
+        }else{
+            $brands=Brand::latest()->get();
+            return view('brand.allbrands',compact('brands'));
+        }
     }
 
 }

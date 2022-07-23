@@ -20,7 +20,7 @@
                                 </li>
                                 <li><a href="{{route('items.welcome')}}">Items</a>
                                 </li>
-                                <li><a href="#">Brands</a></li>
+                                <li><a href="{{route('brand.allbrands')}}">Brands</a></li>
                                 <li><a href="blog.html">Blog <small class="icon-arrow"></small></a>
                                     <ul class="sub-menu">
                                         <li><a href="blog-details.html">Single Post</a></li>

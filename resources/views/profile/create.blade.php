@@ -33,7 +33,7 @@
                             <li>
                                 <h3>Main</h3>
                                 <ul>
-                                    <li><a href="dashboard.html"><i class="lnr lnr-chart-bars"></i> ダッシュボード </a></li>
+                                    <li><a href="{{route('buyer.dashboard')}}"><i class="lnr lnr-chart-bars"></i> ダッシュボード </a></li>
                                     <li><a href="message.html"><i class="lnr lnr-bubble"></i> メッセージ </a></li>
                                     <li><a href="job-alerts.html"><i class="lnr lnr-envelope"></i> 商品に関する通知 </a></li>
                                     {{-- <li><a href="reviews.html"><i class="lnr lnr-star"></i> レビュー </a></li> --}}
@@ -43,14 +43,14 @@
                                 <h3>Items</h3>
                                 <ul>
                                     <li><a href="applications.html"><i class="lnr lnr-briefcase"></i> 申請した商品</a></li>
-                                    <li><a href="bookmarks.html"><i class="lnr lnr-bookmark"></i> お気に入り </a></li>
+                                    <li><a href="{{route('items.favourite')}}"><i class="lnr lnr-bookmark"></i> お気に入り </a></li>
                                     {{-- <li><a href="follows.html"><i class="lnr lnr-pointer-right"></i> フォロー </a></li> --}}
                                 </ul>
                             </li>
                             <li>
                                 <h3>Account</h3>
                                 <ul>
-                                    <li><a class="active" href="profile.html"><i class="lnr lnr-user"></i> プロフィール </a></li>
+                                    <li><a class="active" href="{{route('buyer.view')}}"><i class="lnr lnr-user"></i> プロフィール </a></li>
                                     {{-- <li><a href="orders.html"><i class="lnr lnr-cart"></i> 注文 </a></li> --}}
                                     <li><a href="login-register.html"><i class="lnr lnr-exit-up"></i> ログアウト </a></li>
                                 </ul>
@@ -76,7 +76,7 @@
                                 <div class="profile-applications mb-50">
                                     <div class="profile-applications-heading">
                                         <ul class="nav">
-                                            <li><a class="active" href="profile.html">My profile</a></li>
+                                            <li><a class="active" href="{{route('buyer.profile',[$user->profile->id,$user->profile->slug])}}" target="_blank"><h3>自分のプロフィールページを見る</h3></a></li>
                                         </ul>
                                     </div>
                                     <div class="profile-applications-main-block">
@@ -139,13 +139,26 @@
 
 
 
-                                                                        <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                                                                             <!-- Single Input Start -->
                                                                             <div class="single-input mb-25">
                                                                                 <label for="address">所在地</label>
                                                                                 <input type="text" id="address" name="address" placeholder="所在地" value="{{old('address')}}">
                                                                                 @if($errors->has('address'))
                                                                                 <div class="error" style="color: red;">{{$errors->first('address')}}
+                                                                                </div>
+                                                                                @endif
+                                                                            </div>
+                                                                            <!-- Single Input End -->
+                                                                        </div>
+
+                                                                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                                                                            <!-- Single Input Start -->
+                                                                            <div class="single-input mb-25">
+                                                                                <label for="slug">スラッグ</label>
+                                                                                <input type="text" id="slug" name="slug" placeholder="スラッグ" value="{{old('slug')}}">
+                                                                                @if($errors->has('address'))
+                                                                                <div class="error" style="color: red;">{{$errors->first('slug')}}
                                                                                 </div>
                                                                                 @endif
                                                                             </div>

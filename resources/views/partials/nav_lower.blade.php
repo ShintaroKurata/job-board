@@ -21,7 +21,7 @@
                                     <li><a href="{{route('items.welcome')}}">Items</a>
                                     </li>
                                     </li>
-                                    <li><a href="#">Brands</a>
+                                    <li><a href="{{route('brand.allbrands')}}">Brands</a>
                                     </li>
                                     <li><a href="blog.html">Blog</a>
                                     </li>

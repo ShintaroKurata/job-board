@@ -66,14 +66,18 @@ Route::get('/brands/profile',[BrandController::class,'create'])->name('brand.vie
 Route::post('/brands/profile',[BrandController::class,'store'])->name('brand.store');
 Route::post('/brands/logo',[BrandController::class,'brandLogo'])->name('brandlogo');
 Route::post('/brands/coverphoto',[BrandController::class,'coverPhoto'])->name('cover.photo');
+Route::get('/brands/all-brands',[UserController::class,'allbrands'])->name('brand.allbrands');
+
 
 //buyer profile
+Route::get('/buyer/{id}/{buyer}',[UserController::class,'buyerProfile'])->name('buyer.profile');
 Route::get('/buyer/profile',[UserController::class,'create'])->name('buyer.view');
 Route::post('/buyer/profile',[UserController::class,'store'])->name('buyer.store');
 Route::post('/user/coverletter',[UserController::class,'coverletter'])->name('cover.letter');
 Route::post('/user/resume',[UserController::class,'resume'])->name('resume');
 Route::post('/buyer/avatar',[UserController::class,'avatar'])->name('avatar');
 Route::get('/items/favourite',[UserController::class,'favourite'])->name('items.favourite');
+Route::get('/buyer/dashboard',[UserController::class,'dashboard'])->name('buyer.dashboard');
 
 
 //buyer view

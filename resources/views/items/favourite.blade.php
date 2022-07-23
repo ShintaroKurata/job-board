@@ -12,7 +12,7 @@
                             <li>
                                 <h3>Main</h3>
                                 <ul>
-                                    <li><a href="dashboard.html"><i class="lnr lnr-chart-bars"></i> ダッシュボード </a></li>
+                                    <li><a href="{{route('buyer.dashboard')}}"><i class="lnr lnr-chart-bars"></i> ダッシュボード </a></li>
                                     <li><a href="message.html"><i class="lnr lnr-bubble"></i> メッセージ </a></li>
                                     <li><a href="job-alerts.html"><i class="lnr lnr-envelope"></i> 商品に関する通知 </a></li>
                                 </ul>
